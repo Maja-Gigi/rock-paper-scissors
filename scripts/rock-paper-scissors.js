@@ -39,9 +39,8 @@ function playGame(playerMove) {
     } else if (computerMove === 'scissors') {
       result = 'You win.'
     }
-  }
 
-  if (playerMove === 'paper') {
+  } else if (playerMove === 'paper') {
     if (computerMove === 'rock') {
       result = 'You win.';
     } else if (computerMove === 'paper') {
@@ -49,9 +48,8 @@ function playGame(playerMove) {
     } else if (computerMove === 'scissors') {
       result = 'You lose.'
     }
-  }
 
-  if (playerMove === 'scissors') {
+  } else if (playerMove === 'scissors') {
     if (computerMove === 'rock') {
       result = 'You lose.';
     } else if (computerMove === 'paper') {
@@ -71,11 +69,15 @@ function playGame(playerMove) {
 
   localStorage.setItem('score', JSON.stringify(score));
 
-  document.querySelector('.js-moves').innerHTML = `You picked ${playerMove}. Computer picked ${computerMove}`;
-  
+  updateScoreElement();
+
+  document.querySelector('.js-moves').innerHTML = `You 
+  <img src="images/${playerMove}-emoji.png" class="move-icon">
+  <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
+   
   document.querySelector('.js-result').innerHTML = `${result}`;
 
-  updateScoreElement();
+  
    
 }
 
