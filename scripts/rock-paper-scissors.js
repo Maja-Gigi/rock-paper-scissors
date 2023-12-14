@@ -86,6 +86,7 @@ function updateScoreElement() {
 let isAutoPlaying = false;
 let intervalID;
 
+//Funkcija bez arrow funkcije
 function autoPlay() {
   if (!isAutoPlaying) {
       intervalID = setInterval(function () {
