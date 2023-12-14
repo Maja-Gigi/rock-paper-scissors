@@ -76,11 +76,25 @@ function playGame(playerMove) {
   <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
    
   document.querySelector('.js-result').innerHTML = `${result}`;
-
   
-   
 }
 
 function updateScoreElement() {
   document.querySelector('.js-score').innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
+}
+
+let isAutoPlaying = false;
+let intervalID;
+
+function autoPlay() {
+  if (!isAutoPlaying) {
+      intervalID = setInterval(function () {
+      const playerMove = pickComputerMove();
+      playGame(playerMove);
+   }, 1000);
+    isAutoPlaying = true;
+  } else {
+    clearInterval(intervalID);
+    isAutoPlaying = false;
+  }
 }
